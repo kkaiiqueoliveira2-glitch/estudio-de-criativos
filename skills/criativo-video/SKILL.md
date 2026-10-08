@@ -41,8 +41,11 @@ Ler só:
      anúncios em vídeo há mais tempo no ar no nicho, com a fala transcrita, em
      `<pasta>/referencias.md`. Ler só esse arquivo (e as folhas `videos/<id>.jpg` dos que chamarem
      atenção). Uma pesquisa vale por umas semanas: reaproveitar a pasta se for recente.
-   - Escolher **um ângulo que nenhum vídeo do histórico usou** (tipo de gancho, a dor, a prova, a
-     estrutura) e modelar a estrutura de 1 ou 2 referências. Nunca copiar frase de outro anunciante.
+   - Montar **2 ou 3 ângulos que nenhum vídeo do histórico usou** (cada um com o gancho escrito e a
+     dor/desejo que ele toca), modelados em 1 ou 2 referências, e **deixar o usuário escolher** antes
+     de escrever a copy inteira. Ângulo de anúncio é dor ou desejo puxando pra oferta; guia ou
+     checklist ("3 perguntas antes de contratar") não é anúncio (vetado em 08/10/2026). Nunca copiar
+     frase de outro anunciante.
 3. **Copy** (se não veio pronta): gancho (pergunta ou sacada contraintuitiva) → dor (uma cena
    concreta da vida do cliente) → virada (o que muda, o mecanismo da oferta) → prova ou
    benefícios (o que ele ganha) → chamada. Pelo menos uma pergunta que faz pensar, com pausa

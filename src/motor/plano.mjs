@@ -149,6 +149,9 @@ export const planejar = (config, legendas, tempos, marca = {}) => {
   for (const c of cenas) {
     const cfg = c.cfg;
     const P = c.palavras;
+    // o gancho tem que estar legível no quadro 0 (é a capa do anúncio): as palavras da primeira cena já
+    // estão na tela; tf = tempo da fala, e o risco, o marca-texto e o brilho acontecem quando ela é dita
+    const noQuadro0 = (ls) => ls.map((l) => l.map((tk, k) => ({ ...tk, t: -1 + k * 0.05, tf: tk.t })));
     const d = {};
     let cursor = 0;
     const linhas = (lista) =>
@@ -171,10 +174,7 @@ export const planejar = (config, legendas, tempos, marca = {}) => {
       d.blocos.forEach((b, k) => {
         b.ate = k < d.blocos.length - 1 ? d.blocos[k + 1].de : c.fim;
       });
-      if (c.i === 0 && cfg.quadro0 !== false) {
-        // tf = tempo da fala: o risco, o marca-texto e o brilho continuam acontecendo quando a palavra é dita
-        d.blocos[0].linhas = d.blocos[0].linhas.map((l) => l.map((tk, k) => ({ ...tk, t: -1 + k * 0.05, tf: tk.t })));
-      }
+      if (c.i === 0 && cfg.quadro0 !== false) d.blocos[0].linhas = noQuadro0(d.blocos[0].linhas);
       d.linhas = d.blocos.flatMap((b) => b.linhas);
       for (const l of d.linhas) {
         for (const tk of l) {
@@ -188,6 +188,7 @@ export const planejar = (config, legendas, tempos, marca = {}) => {
 
     if (c.tipo === "pergunta") {
       d.contexto = linhas(cfg.contexto);
+      if (c.i === 0 && cfg.quadro0 !== false) d.contexto = noQuadro0(d.contexto);
       const tChave = quando(P, cfg.chave) ?? c.inicio + 1;
       d.chave = { texto: cfg.chave, t: tChave };
       d.pausa = Math.max(c.inicio + 0.4, tChave - (cfg.pausa ?? 0.65));
@@ -210,8 +211,10 @@ export const planejar = (config, legendas, tempos, marca = {}) => {
     }
 
     if (c.tipo === "logos") {
-      d.frase1 = cfg.frase1;
-      d.frase2 = cfg.frase2 ?? null;
+      // a frase dos logos não tem marcação (a última linha já sai em destaque): tira se vier
+      const limpa = (l) => l && l.map((t) => t.replace(/^>s*/, "").replace(/[*_~]/g, ""));
+      d.frase1 = limpa(cfg.frase1);
+      d.frase2 = limpa(cfg.frase2) ?? null;
       d.entra = c.inicio + 0.1;
       const t0 = naGrade(quando(P, cfg.logosEm ?? "") ?? c.inicio + 0.5, 0.5);
       d.logos = cfg.logos.map((logo, k) => ({ logo, t: t0 + k * (batida / 2) }));

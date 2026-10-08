@@ -74,8 +74,9 @@ uma. Se a palavra é dita, entra quando é dita; se não, na batida.
 `whatsapp.svg`, `instagram.svg`, `ia/chatgpt.svg`, `ia/gemini.svg`, `ia/claude.svg`,
 `ia/perplexity.svg`, `ia/copilot.svg`, `ia/meta.svg`. Logo novo: pôr o arquivo lá (oficial, sem
 recolorir). `logosEm`/`trocaEm`: palavra da fala em que os logos explodem / a frase troca.
+A frase dos logos não leva marcação: a última linha de cada frase já sai em destaque.
 ```json
-{ "tipo": "logos", "frases": [6], "frase1": ["Peça pelo", "WhatsApp"], "frase2": ["ou pelo", "*Instagram.*"],
+{ "tipo": "logos", "frases": [6], "frase1": ["Peça pelo", "WhatsApp"], "frase2": ["ou pelo", "Instagram."],
   "logos": ["whatsapp.svg", "instagram.svg"], "logosEm": "WhatsApp", "trocaEm": "Instagram" }
 ```
 
