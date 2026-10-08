@@ -83,6 +83,16 @@ Tem um exemplo pronto pra copiar o formato: `public/criativos/exemplo/` (oferta 
 hamburgueria, 30 s). Pra ver o exemplo virar vídeo, gere a voz dele: peça **"gera a voz do
 exemplo e monta"**.
 
+## Pra nenhum vídeo sair igual ao anterior
+
+Antes de escrever a copy, a skill faz duas coisas sozinha:
+
+- **Lê o histórico** (`node scripts/historico.mjs`): o ângulo, o gancho e as cenas de cada vídeo
+  que você já fez. O próximo sai com ângulo diferente.
+- **Pesquisa o seu nicho** na Biblioteca de Anúncios da Meta (`node scripts/pesquisa.mjs`): acha os
+  anúncios em vídeo há mais tempo no ar, baixa e transcreve a fala de cada um. Num anúncio em vídeo,
+  a copy de verdade é a fala. A skill usa isso pra adaptar a estrutura, nunca pra copiar frase.
+
 ## Mostrar um site, app ou perfil no celular
 
 ```

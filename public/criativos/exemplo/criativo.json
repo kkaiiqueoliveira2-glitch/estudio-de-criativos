@@ -1,16 +1,131 @@
 {
   "titulo": "Exemplo: oferta de hamburgueria (30 s)",
-  "audio": { "tempo": 1.08, "fraseDoDrop": 4, "pausas": { "0": 0.4, "2": 0.5, "3": 0.85 } },
+  "angulo": "Exemplo do pacote: oferta com preço riscado (hamburgueria)",
+  "estrutura": "contraintuitivo → cena → pergunta com pausa → virada → palavras na batida → onde pedir → preço → chamada",
+  "audio": {
+    "tempo": 1.08,
+    "fraseDoDrop": 4,
+    "pausas": {
+      "0": 0.4,
+      "2": 0.5,
+      "3": 0.85
+    }
+  },
   "cenas": [
-    { "tipo": "frase", "frases": [0], "tema": "escuro", "linhas": ["Você não precisa", "de mais um ~lanche.~"] },
-    { "tipo": "frase", "frases": [1], "tema": "escuro", "linhas": ["> Você precisa de um que", "*valha a fome.*"] },
-    { "tipo": "pergunta", "frases": [2, 3], "tema": "claro", "contexto": ["> Sexta à noite,", "semana pesada,", "_celular na mão._"],
-      "chave": "Quem", "resto": ["vai matar", "essa fome?"], "particulas": true },
-    { "tipo": "frase", "frases": [4], "tema": "escuro", "transicao": "corte", "linhas": ["Na *brasa,*", "> na hora,", "carne de verdade."] },
-    { "tipo": "palavras", "frases": [5], "tema": "vivo", "palavras": ["Quente,", "suculento", "no ponto."], "numerar": false },
-    { "tipo": "logos", "frases": [6], "tema": "claro", "frase1": ["Peça pelo", "WhatsApp"], "frase2": ["ou pelo", "*Instagram.*"],
-      "logos": ["whatsapp.svg", "instagram.svg"], "logosEm": "WhatsApp", "trocaEm": "Instagram" },
-    { "tipo": "frase", "frases": [7], "tema": "escuro", "camera": "cima", "linhas": ["> Só nesta sexta,", "> de ~R$ 49~", "por *R$ 39*"] },
-    { "tipo": "cta", "frases": [8], "tema": "vivo", "linhas": ["> Toque em"], "depois": ["> e garanta o *seu*", "antes de acabar."] }
+    {
+      "tipo": "frase",
+      "frases": [
+        0
+      ],
+      "tema": "escuro",
+      "linhas": [
+        "Você não precisa",
+        "de mais um ~lanche.~"
+      ]
+    },
+    {
+      "tipo": "frase",
+      "frases": [
+        1
+      ],
+      "tema": "escuro",
+      "linhas": [
+        "> Você precisa de um que",
+        "*valha a fome.*"
+      ]
+    },
+    {
+      "tipo": "pergunta",
+      "frases": [
+        2,
+        3
+      ],
+      "tema": "claro",
+      "contexto": [
+        "> Sexta à noite,",
+        "semana pesada,",
+        "_celular na mão._"
+      ],
+      "chave": "Quem",
+      "resto": [
+        "vai matar",
+        "essa fome?"
+      ],
+      "particulas": true
+    },
+    {
+      "tipo": "frase",
+      "frases": [
+        4
+      ],
+      "tema": "escuro",
+      "transicao": "corte",
+      "linhas": [
+        "Na *brasa,*",
+        "> na hora,",
+        "carne de verdade."
+      ]
+    },
+    {
+      "tipo": "palavras",
+      "frases": [
+        5
+      ],
+      "tema": "vivo",
+      "palavras": [
+        "Quente,",
+        "suculento",
+        "no ponto."
+      ],
+      "numerar": false
+    },
+    {
+      "tipo": "logos",
+      "frases": [
+        6
+      ],
+      "tema": "claro",
+      "frase1": [
+        "Peça pelo",
+        "WhatsApp"
+      ],
+      "frase2": [
+        "ou pelo",
+        "*Instagram.*"
+      ],
+      "logos": [
+        "whatsapp.svg",
+        "instagram.svg"
+      ],
+      "logosEm": "WhatsApp",
+      "trocaEm": "Instagram"
+    },
+    {
+      "tipo": "frase",
+      "frases": [
+        7
+      ],
+      "tema": "escuro",
+      "camera": "cima",
+      "linhas": [
+        "> Só nesta sexta,",
+        "> de ~R$ 49~",
+        "por *R$ 39*"
+      ]
+    },
+    {
+      "tipo": "cta",
+      "frases": [
+        8
+      ],
+      "tema": "vivo",
+      "linhas": [
+        "> Toque em"
+      ],
+      "depois": [
+        "> e garanta o *seu*",
+        "antes de acabar."
+      ]
+    }
   ]
 }

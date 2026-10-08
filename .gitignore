@@ -11,5 +11,6 @@ public/criativos/exemplo/legendas.json
 public/criativos/exemplo/tempos.json
 public/telas/*
 public/som/*
+pesquisa/
 saida/*
 !**/.gitkeep

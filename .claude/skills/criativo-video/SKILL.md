@@ -34,11 +34,22 @@ Ler só:
 ## Fluxo
 
 1. **Briefing.** Faltando a Oferta ou a Ideia, mandar o `briefing.md` e parar. O resto tem padrão.
-2. **Copy** (se não veio pronta): gancho (pergunta ou sacada contraintuitiva) → dor (uma cena
+2. **Pesquisa** (pra nenhum vídeo sair igual ao anterior):
+   - `node scripts/historico.mjs`: ângulo, gancho e forma de cada vídeo já feito.
+   - `node scripts/pesquisa.mjs pesquisa/<assunto> "frase" "frase" --exata --top=10 --so="<assunto>"
+     --sem="<o que não é concorrente>"` (sem `--exata` e `--so`, a busca traz anúncio de tudo):
+     anúncios em vídeo há mais tempo no ar no nicho, com a fala transcrita, em
+     `<pasta>/referencias.md`. Ler só esse arquivo (e as folhas `videos/<id>.jpg` dos que chamarem
+     atenção). Uma pesquisa vale por umas semanas: reaproveitar a pasta se for recente.
+   - Escolher **um ângulo que nenhum vídeo do histórico usou** (tipo de gancho, a dor, a prova, a
+     estrutura) e modelar a estrutura de 1 ou 2 referências. Nunca copiar frase de outro anunciante.
+3. **Copy** (se não veio pronta): gancho (pergunta ou sacada contraintuitiva) → dor (uma cena
    concreta da vida do cliente) → virada (o que muda, o mecanismo da oferta) → prova ou
    benefícios (o que ele ganha) → chamada. Pelo menos uma pergunta que faz pensar, com pausa
-   depois. Mostrar a copy **uma vez**, curta, e esperar o ok.
-3. **Voz**, uma das duas:
+   depois. Mostrar a copy **uma vez**, curta, com o ângulo em uma linha, a referência modelada e o
+   custo da voz, e esperar o ok. No `criativo.json`, anotar `angulo`, `estrutura` e `referencias`
+   (é o que o histórico lê).
+4. **Voz**, uma das duas:
    - Higgsfield (`text2speech_v2`, variant `elevenlabs`, voz do `marca.json > voz.id`). Gasta
      crédito: dizer o custo no mesmo recado da copy e só gerar com o ok. No texto da voz, o nome
      da marca vai como se fala (`marca.json > nomeFalado`); a pontuação puxa o tom ("?" na
@@ -46,15 +57,15 @@ Ler só:
    - Voz gravada pelo dono (celular, lugar silencioso, uma frase por respiração).
    Salvar em `public/criativos/<nome>/narracao-crua.mp3` + `roteiro.txt` (a fala escrita como
    deve aparecer na tela, com o nome da marca certinho).
-4. **criativo.json** na mesma pasta, pelo `cenas.md`: uma cena por momento, `fraseDoDrop` na
+5. **criativo.json** na mesma pasta, pelo `cenas.md`: uma cena por momento, `fraseDoDrop` na
    virada, pausa de 0.7 a 0.9 s depois de pergunta, temas alternando, e cada vídeo com cara
    própria (tipos de cena, temas e câmera diferentes do anterior).
-5. **Rascunho:** `node scripts/criativo.mjs <nome>` (em segundo plano; uns 10 min por minuto de
+6. **Rascunho:** `node scripts/criativo.mjs <nome>` (em segundo plano; uns 10 min por minuto de
    vídeo). Conferir UMA folha de contato (`ffmpeg -i saida/<nome>_rascunho.mp4 -vf
    "fps=1/3,scale=180:320,tile=11x2" -frames:v 1 folha.jpg`) e entregar o arquivo.
-6. **Ajustes** = mexer no `criativo.json` (texto, cena, tema, câmera) e rodar de novo. Fala nova:
+7. **Ajustes** = mexer no `criativo.json` (texto, cena, tema, câmera) e rodar de novo. Fala nova:
    regravar só a frase e usar `audio.substitui`; depois `--audio`.
-7. **Final:** `node scripts/criativo.mjs <nome> --final` → `saida/<nome>.mp4` (1080x1920, 60 fps,
+8. **Final:** `node scripts/criativo.mjs <nome> --final` → `saida/<nome>.mp4` (1080x1920, 60 fps,
    som em -14 LUFS), o que sobe no anúncio. Acima de 29 MB sai também um `-celular.mp4` leve, só
    pra assistir.
 
@@ -82,7 +93,8 @@ Ler só:
 
 ## Ferramentas (já prontas, não reescrever)
 
-`scripts/criativo.mjs` (tudo) · `scripts/audio.mjs` (voz + trilha + legendas + tempos) ·
+`scripts/criativo.mjs` (tudo) · `scripts/pesquisa.mjs` (anúncios em vídeo do nicho, com a fala) ·
+`scripts/historico.mjs` (ângulos já usados) · `scripts/audio.mjs` (voz + trilha + legendas + tempos) ·
 `scripts/tela.mjs` (site ou gravação de tela → tela do celular) · `scripts/sons.mjs` (efeitos) ·
 `scripts/stills.mjs` (quadros soltos pra conferir) · `scripts/mixar.mjs`,
 `scripts/render-quadros.mjs`, `scripts/finalizar.mjs` (etapas do criativo.mjs) ·

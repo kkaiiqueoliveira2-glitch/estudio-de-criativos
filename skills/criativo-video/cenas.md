@@ -9,6 +9,9 @@ vídeo.** Exemplo completo: `public/criativos/exemplo/criativo.json`.
 ```json
 {
   "titulo": "...",
+  "angulo": "o ângulo em uma linha (o histórico lê pra não repetir)",
+  "estrutura": "gancho de pergunta → cena → prova → chamada",
+  "referencias": ["Anunciante X, 210 dias no ar (estrutura do caso de cliente)"],
   "audio": { "tempo": 1.08, "fraseDoDrop": 4, "pausas": { "1": 0.8 }, "substitui": {} },
   "cenas": [ ... ],
   "sons": [ { "t": 12.3, "som": "pop", "volume": 0.4 } ]
