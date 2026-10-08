@@ -1,0 +1,15 @@
+node_modules
+whisper.cpp/
+
+# o que é de quem usa: marca, vídeos, telas e o que sai do render
+public/marca/
+public/criativos/*
+!public/criativos/exemplo/
+public/criativos/exemplo/*.mp3
+public/criativos/exemplo/*-crua.json
+public/criativos/exemplo/legendas.json
+public/criativos/exemplo/tempos.json
+public/telas/*
+public/som/*
+saida/*
+!**/.gitkeep
